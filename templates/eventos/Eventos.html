@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HOME %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+                </div>
+            </div>
+            </div>
+            </header>
+        <main>
+            <section>
+                <h2 id="head_div_seccion" class="titulo">EVENTOS</h2>
+              </section>
+            </section>
+            <section>
+                <aside>
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a>
+            <aside>
+              <section class="container">
+                <form>
+                  <div class="row form-group">
+                    <label for="date" class="-sm-1 col-form-label">Fecha</label>
+                    <div class="col-sm-4">
+                      <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control">
+                        <span>
+                          <span class="input-group-text bg-white d-block">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </aside>
+<aside>
+  <h2>Filtros</h2>
+  <a id="botones_filtro" href="{% url 'eventos' id=9000  %}" class="btn btn-primary" role="button" data-bs-toggle="button">Más antiguos primero</a>
+  <a id="botones_filtro" href="{% url 'eventos'  id=0 %}" class="btn btn-primary" role="button" data-bs-toggle="button">Más actuales primero</a>
+  {% for categoria in categorias %} 
+  <a id="botones_filtro" href="{% url 'eventos' id=categoria.id %}" class="btn btn-primary" role="button" data-bs-toggle="button">{{categoria}}</a>
+  {% endfor %}
+</aside>
+
+
+              {%for evento in eventos %}
+                <article>
+                    <article>
+                        <div class="container text-start">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="{{MEDIA_ROOT}}/{{evento.imagen_ref}}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h4 class="card-title">{{evento.titulo}}</h4>
+                                            <p class="card-text">{{evento.contenido}}</p>
+                                            <div class="container text-start">
+                                                <div class="row align-items-start">
+                                                  <div class="row align-items-start">
+                                                    <h6>El evento comienza el: {{ evento.horario_comienzo_evento}}</h6>
+                                                    </div>
+                                                  <div class="col">
+                                                    {% for categorias in evento.categorias.all %} 
+                                                    <h6>Categoria: {{ categorias.categoria_nombre }} </h6>
+                                                    {% endfor %}
+                                                  </div>
+                                                  
+                                                  <div class="col align-items-start">
+                                                    <div class="col">
+                                                      <h6>Subido por: {{ evento.autor }}</h6>
+                                                    </div>
+                                                  
+                                                </div>
+                                                  <div class="row align-items-start">
+                                                    <h6>Lugar del evento: {{ evento.lugar_evento}}</h6>
+                                                    
+                                                </div>
+                                                <div class="row align-items-start">
+                                                    <h6>Modalidad: {{ evento.modalidad_evento}}</h6>
+                                                    
+                                                </div>
+                                                
+                                           
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                        
+                    </article>
+                    <body style="background-color: white;">
+      
+    
+                      <script type="text/javascript">
+                        $(function () {
+                          $('#datepicker').datepicker();
+                        });
+                      </script>
+                      </body>
+                </article> 
+              {%endfor%}
+            </section>
+
+
+{% endblock %}

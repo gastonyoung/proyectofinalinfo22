@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HOME %}
+
+<!doctype html>
+<html lang="es">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<body>
+    
+    <!--QUIENES SOMOS-->
+    
+    <section id="Quienes_Somos">
+    
+        <div class="grid-layout">
+        <div class="separador">
+                    
+        <img id="imagen-somos" src="{% static 'images/ninos_comiendo.jpg' %}" alt="">
+        </div>
+            
+        <div class="separador">
+        <div id="texto-somos">
+                <h2>SOMOS UNA FAMILIA GRANDE, MUY GRANDE</h2> 
+                <h3>El comedor y merendero "La Casita del Árbol" 
+                es una familia grande, donde compartimos diariamente alegrías,
+                tristezas, juegos y risas 
+                pero sobre todo somos un grupo de personas comprometidas que 
+                dedicamos gran parte de nuestros días a mejorar 
+                o intentar mejorar la calidad de vida de muchos niños. </h3>
+        </div>   
+        </div>
+       
+    </div>
+    </section>
+
+<!--OBJETIVOS-->
+
+<header id="head_div_seccion"  class="text-center"><h1>OBJETIVOS</h1></header>
+<section id="OBJETIVOS" >
+    
+    <article >
+        <div class="grid-layout">
+            <div class="separador">
+                <img id="imagen_payasos" src="{% static 'images/niños payasos.jpg' %}" alt="">
+            </div>
+            
+            <div class="separador">
+                <div class="texto-objetivos">
+                    <h2>¿ES NUESTRA TAREA FACIL?</h2>
+                    <h3>Claro que no, ponemos el pulmón y el corazón en cada cosa. Nada fue, ni es fácil. El comedor se sustenta a base de donaciones de la gente y de grupos solidarios que tenemos la dicha que nos acompañen. </h3>
+                </div>
+                
+                <div class="texto-objetivos">
+                    <h2>MANOS A LA HUERTA</h2>
+                    <h3>Es uno de nuestros proyectos.
+                        Hoy en día, tener nuestra propia huerta nos 
+                        facilita un sin fin de cosas, de alli sacamos lechuga, 
+                        verduras para las comidas, nos reconforta saber que fue producido por y para ellos.</h3>
+                </div>
+                <div class="texto-objetivos">
+                    <h2>APOYO ESCOLAR</h2>
+                    <h3>Antes de cada merienda dedicamos un buen rato al estudio. En épocas de clases, no hay merienda sin antes hacer un poco de tarea. 
+                    Entre risas, tablas, lecturas, dictados, juegos, multiplicación y divisiones intentamos apoyar un poquito a las maestras e intentamos reforzar el aprendizaje en cada uno de ellos. </h3>
+                </div>
+            </div>
+        </div>
+        
+    </article>
+</section>
+
+
+<!--NOTICIAS-->
+
+<header id="head_div_seccion" class="text-center"><h1>NOTICIAS</h1></header> 
+<section id="NOTICIAS">
+    
+    <div class="contenedor" class="card-group"> 
+    {% for noticia in noticias %}
+        <div class="card"> 
+        <img src="{{MEDIA_ROOT}}/{{noticia.imagen_ref}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{noticia.titulo}}</h5>
+            <p class="card-text"><H5>{{noticia.contenido}}</H5>
+            <p class="card-text"><small class="text-muted">{{noticia.ultima_modificacion}}</small></p>
+        </div>
+        </div>
+    {% endfor %}
+        </div> 
+    </div> <br>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <button  id ="boton_noticias" class="btn btn-success" type="button"><a href="{% url 'noticias' id=0 %}" class="nav-link">Ver todas las Noticias</a></button>
+</div>
+</section>
+
+<!--EVENTOS-->
+
+<header id="head_div_seccion" class="text-center"><h1>EVENTOS</h1></header>
+<section id="EVENTOS">
+
+    <div class="contenedor" class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+    {% for evento in eventos %}
+        <div class="card">
+            <img src="{{MEDIA_ROOT}}/{{evento.imagen_ref}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{evento.titulo}}</h5>
+            <p class="card-text"><H5>{{evento.contenido}}</H5>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div> <br>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <button id="boton_eventos" class="btn btn-success" type="button"><a href="{% url 'eventos' id=0 %}" class="nav-link">Ver todos los Eventos</a></button>
+</div>
+</section>
+
+<!--NOSOTROS-->
+
+
+<header id="head_div_seccion" class="text-center"><h1>NOSOTROS</h1></header>
+<section id="NOSOTROS">
+<div id="fondo-nosotros">
+
+    <div class="contenedor-avatar">
+        <div class="miembro-fundacion">
+            <img class="avatar" src="{%static 'images/avatar-placeholder.png'%}" alt="...">
+            <h3>NOMBRE Y APELLIDO </h3>
+        </div>
+
+        <div class="miembro-fundacion">
+            <img class="avatar" src="{%static 'images/avatar-placeholder.png'%}" alt="...">
+            <h3>NOMBRE Y APELLIDO </h3>
+        </div>
+
+        <div class="miembro-fundacion">
+            <img class="avatar" src="{%static 'images/avatar-placeholder.png''%}" alt="...">
+            <h3>NOMBRE Y APELLIDO </h3>
+        </div>
+
+        <div class="miembro-fundacion">
+            <img class="avatar" src="{%static 'images/avatar-placeholder.png''%}" alt="...">
+            <h3>NOMBRE Y APELLIDO </h3>
+        </div>
+
+        <div class="miembro-fundacion">
+            <img class="avatar" src="{%static 'images/avatar-placeholder.png'%}" alt="...">
+            <h3>NOMBRE Y APELLIDO </h3>
+        </div>
+    </div>
+</div>
+
+    <!--CONTACTO-->
+
+
+<header id="head_div_seccion" class="text-center"><h1>CONTACTOS</h1></header>
+<section id="CONTACTO">
+    <div class="grid-layout">
+        <div class="separador">
+            <div class="datos-contacto">
+
+                <div class="hilera-contacto">
+                    <h1>DONDE ESTAMOS</h1>
+                </div>
+                <div class="hilera-contacto">
+                    <img class="icono" src="{%static 'images/Icono_Lugar.png'%}" alt="...">
+                    <h3>Fray Bertaca 4000 Resistencia - Chaco </h3>
+
+                </div>
+
+                <div class="hilera-contacto">
+                    <img class="icono" src="{%static 'images/Icono_Tel.png'%}" alt="...">
+                    <h3>3624082451</h3>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+        <div class="separador">
+            <iframe id="mapa_home"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.3609507836663!2d-59.03012969999999!3d-27.458019999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450b75fbfdc0ff%3A0x878ba5f739aa202f!2sFray%20Bertaca%204000%2C%20Resistencia%2C%20Chaco!5e0!3m2!1ses!2sar!4v1660052810782!5m2!1ses!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+{% endblock %}

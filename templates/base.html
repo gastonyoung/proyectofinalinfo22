@@ -1,0 +1,140 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Grupo 9">
+  <title>La casita del Arbol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800 & display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="{% static 'images/favicons/apple-icon-114x114.png' %}" sizes="180x180">
+  <link rel="icon" href="{% static 'images/favicons/favicon-32x32.png' %}" sizes="32x32" type="image/png">
+  <link rel="icon" href= "{% static 'images/favicons/favicon-16x16.png' %}" sizes="16x16" type="image/png">
+  <link rel="manifest" href="{% static 'images/favicons/manifest.json' %}">
+  <link rel="mask-icon" href="{% static 'images/favicons/safari-pinned-tab.svg' %}" color="#712cf9">
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+
+
+  <!-- Bootstrap core CSS "{% static '' %}"-->
+  <link href= "{% static 'css/bootstrap-grid.min.css' %}"  rel="stylesheet">
+  <link href= "{% static 'css/gruponueve.css' %}"  rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <div>
+    <header id="header_pagina" class="blog-header lh-1 py-3" data-slick-index="0" aria-hidden="false" tabindex="0"
+      style="background-image: url({% static 'images/nino-castillo.jpg' %}); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%;; left: 0px; top: 0px; z-index: 999; opacity: 0.9;">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 text-center g9">
+          <a class="blog-header-logo text-darkg9" href="{% url 'HOME' %}"><img src="{% static 'images/Logo de Casita del Arbol.jpeg' %}" width="80px" alt="Logo ONG"> FUNDACION LA CASITA DEL ARBOL</a>
+        </div>
+        <div id="busqueda" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
+          {% if user.is_authenticated %}
+          <h5><a class="badge bg-secondary" href="#">{{user.username}}</a></h5>
+          <h7> <a class="btn btn-danger" href=" {% url 'logout' %}">Cerrar Sesion<span class="visually-hidden">(current)</span></a> </h7>
+          {% else %}
+          <!-- <li>
+            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesion<span
+                class="visually-hidden">(current)</span></a>
+          </li> -->
+          {% endif %}
+          <br><br><br><br>
+          <div class="text-end">
+            <a type="button" href="{% url 'login' %}" class="btn btn-light">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-light">Registrate</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="p-3 bg-dark  text-white g9 sticky-top " style="margin-top: 0;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="{% url 'HOME' %}" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="{% url 'HOME' %}#OBJETIVOS" class="nav-link">Objetivos</a></li>
+          <li class="nav-item"><a href="{% url 'noticias' id=0 %}" class="nav-link">Noticias</a></li>
+          <li class="nav-item"><a href="{% url 'eventos' id=0 %}" class="nav-link">Eventos</a></li>
+          <li class="nav-item"><a href="{% url 'HOME' %}#NOSOTROS" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="{% url 'HOME' %}#CONTACTOS" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="{% url 'ayudanos' %}" class="nav-link">Ayudanos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% block HOME %}
+
+{% endblock %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+<footer>
+  <div class="contenedor-footer">
+    <div class="conten-foo">
+      <img src="{% static 'images/LogoGrupo9.png' %}" alt="" class="imagen-logo-grup">
+      <h6 class="titulo-final">&copy; 2022 Grupo 9 Informatorio.</h6>
+      <h6 class="titulo-final">Todos los derechos reservados.</h6>
+    </div>
+    <div class="conten-foo">
+      <h5>La Fundacion</h5>
+      <p><a href="{% url 'HOME' %}#NOSOTROS" class="nav-link">Quiénes Somos</a></p>
+      <p><a href="{% url 'HOME' %}#CONTACTOS" class="nav-link">¿Cómo llegar?</a></p>
+      <p><a href="{% url 'HOME' %}#OBJETIVOS" class="nav-link">Nuestra misión</a></p>
+      
+    </div>
+    <div class="conten-foo">
+      <h5>Eventos</h5>
+      <p><a href="{% url 'HOME' %}#EVENTOS" class="nav-link">Novedades</a></p>
+      <p><a href="{% url 'ayudanos' %}" class="nav-link">Colabora</a></p>
+      <p><a href="{% url 'eventos' id=0 %}" class="nav-link">Categorias</a></p>
+    </div>
+  
+    <div class="conten-foo">
+      <h5>Siguenos</h5>
+      <p><a href="https://www.facebook.com/La-Casita-Del-Arbol-Ayala-490299887977840/" class="nav-link">Facebook</a></p>
+      <p><a href="#" class="nav-link">Twitter</a></p>
+      <p><a href="#" class="nav-link">Instagram</a></p>
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,309 @@
+html {
+    width: 100%;
+}
+
+/* Estilo de la pagina Base */
+
+#header_pagina {
+    position: relative;
+    background-color: black;
+}
+
+#fondo_navbar {
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center center; 
+    width: 100%; 
+    position: absolute; 
+    left: 100px; 
+    top: 100px; 
+    z-index: 999; 
+    opacity: 0.7;
+}
+
+#logogrupo9 {
+position: relative;
+left: 200px;
+bottom: -13%;
+}
+
+#MC {
+position: relative;
+left: 10px;
+bottom: -70px;
+}
+
+footer {
+    position: static;
+    width: 100%;
+    bottom: 0%;
+}
+
+/* Estilo de la pagina Login/Registro */
+
+#fondo_formulario {
+    background-color: #A38F86;
+}
+
+
+#body_pagina {
+    background-color: #A38F86;
+    position: fixed;
+    width: 100%;
+    padding: 12%;
+}
+
+#logo_grande_login {
+    position: relative;
+    scale: 40%;
+    right: 10%;
+    margin-top: -12%;
+}
+
+#cuadroregistro {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    width: 50%;
+    scale: 87%;
+}
+
+#cuadrologin {
+    position: absolute;
+    left: 40%;
+    top: 45%;
+    width: 50%;
+    scale: 100%;
+}
+
+
+#registrate {
+    position: relative;
+    left: 2%;
+    align-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    color: white;
+}
+
+#botonenviar {
+    position: relative;
+    width: 85%; 
+    height: auto; 
+    background-color: #57bb8a;
+    margin: 2%;
+    padding: 1%;
+}
+
+#input_pagina{
+    position: relative;
+    width: 85%;
+    margin: 2%;
+    padding: 1%;
+}
+
+.logo_grande_login{
+    
+    scale:30% ;
+    
+}
+
+/* Estilo de la pagina HOME */
+#busqueda {
+    width: fit-content;
+}
+
+#head_div_seccion {
+    z-index: 1;
+    background-color: #57bb8a;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border-width: 1%;
+    border-color: black;
+    border-style: solid;
+}
+
+.grid-layout{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+}
+
+
+
+    /* QUIENES SOMOS */    
+
+.separador{ 
+     text-align:start;
+    
+    max-width: fit-content;
+    max-height: fit-content;
+}
+#texto-somos{
+    grid-template-rows: min-content ;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    text-align:left;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#imagen-somos{
+    padding-block: 30px;
+    margin-block: 22px;
+    max-width: 90%;
+}
+
+
+
+#Quienes_Somos {
+    background-color:#A38F86;
+    padding: 5%;
+}
+
+
+
+    /* OBJETIVOS*/
+    
+    #OBJETIVOS {
+        position: relative;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    .texto-objetivos{
+    margin-top:20px  ;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#imagen_payasos {
+    
+    padding-left: 50px;
+    padding-block: 20px;
+    margin-block: 20px;
+    max-width: 95%;
+}
+    #fondo_payasos {
+        position: absolute;
+        left: 50%;
+        fill: url(static/images/ninos_comiendo.jpg);
+        padding: 10%;
+    }
+
+/* NOTICIAS */
+#boton_noticias {
+    margin-bottom: 10%;
+}
+.contenedor {
+    padding: 15%;
+    position: relative;
+}
+
+#botones_filtro {
+    margin: 1%;
+}
+
+#foto_noticia {
+    object-fit: cover;
+}
+
+/* EVENTOS*/
+#boton_eventos {
+    position: relative;
+    bottom: 10%;
+    left: 3%;
+    width: 100%;
+    margin-bottom: 10%;
+
+}
+/* NOSOTROS*/
+
+#NOSOTROS {
+    
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    
+}
+#fondo-nosotros{
+    
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 55px;
+    position: relative;
+    display: grid;
+    grid-template-rows:auto auto;
+    grid-template-columns:auto auto auto;
+ 
+    
+} 
+.miembro-fundacion{
+    text-align:center;    
+    width:20%;
+    height:auto;
+    float: left;
+
+}
+.avatar{
+       
+    max-width: 50%;
+    text-align:center;
+    text-justify: auto;
+    
+    
+}
+
+/* CONTACTO*/
+#mapa_home {
+    margin: 60px;
+    position: relative;
+    max-width: auto;
+}
+#CONTACTOS {
+    position: relative;
+    background-color:#D9D9D9;
+    width: 100%;
+
+}
+
+.datos-contacto{
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-bottom: 30%;
+    position:relative;
+    width:fit-content;
+    
+
+}
+.icono{
+    scale: 90%;
+       
+}
+
+
+.hilera-contacto{
+    
+    display:flex ;
+    align-items:center;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom:5%;
+   
+}
+
+.mensaje {
+    
+    position:relative;
+    width:max-content;
+    text-align: justify;
+    margin-top: 10%;
+    margin-left: 20%;
+    scale: 120%;
+
+}
+.textbox{
+    margin-block: 6px;
+    width: 333px;
+}
+
+

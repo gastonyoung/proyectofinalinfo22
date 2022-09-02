@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HOME %}
+
+
+<article class="row mt-5">
+    <h1> {{ noticia.titulo}} </h1>
+    <h1> {{noticia.id}} </h1>
+    <div class="date"> {{ noticia.tiempo_creacion }}</div>
+    <div class="col-md-5">
+        <img src="{{noticia.img}}" width="100%" alt="">
+    </div>
+    <p>
+    {{ noticia.contenido|safe|linebreaksbr}}
+    </p>
+
+
+    <hr>
+    {% if user.is_authenticated %}
+        <h1>Nuevo Comentario</h1>
+        <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Enviar Comentario</button>
+        </form>
+    {% else %}
+    <p>Para agregar comentarios debe autenticarse <br>
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+        <a href="{% url 'register' %}">Registrarse</a></p>
+    {% endif %}
+    <hr>
+    <div class="container">
+        {% for comentario in comentarios %}
+            <br>
+            {% if comentario.noticia == noticia %}
+                {% if user.is_authenticated %}
+                    <p>{{ comentario.contenido|safe|linebreaks }}</p>
+                    <p>Posted by: <strong>{{ comentario.autor }}</strong></p>
+                    <p>{{ comentario.tiempo_creacion }}</p>
+                {% endif %}
+            {% endif %}
+            {% empty %}
+            <p>No hay comentarios.</p>
+        {% endfor %}
+    </div>
+</article>
+
+{% endblock %}
